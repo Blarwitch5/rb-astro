@@ -1,5 +1,15 @@
 declare module 'astro:content' {
 	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
 		'.md': Promise<{
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
@@ -175,12 +185,26 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"work": {
+"carouge-natation.md": {
+	id: "carouge-natation.md";
+  slug: "carouge-natation";
+  body: string;
+  collection: "work";
+  data: InferEntrySchema<"work">
+} & { render(): Render[".md"] };
+"fisheye.md": {
+	id: "fisheye.md";
+  slug: "fisheye";
+  body: string;
+  collection: "work";
+  data: InferEntrySchema<"work">
+} & { render(): Render[".md"] };
 "maitrebaigneur.md": {
 	id: "maitrebaigneur.md";
   slug: "maitrebaigneur";
   body: string;
   collection: "work";
-  data: any
+  data: InferEntrySchema<"work">
 } & { render(): Render[".md"] };
 };
 
@@ -192,5 +216,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = never;
+	type ContentConfig = typeof import("../src/content/config");
 }

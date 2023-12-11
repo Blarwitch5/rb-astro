@@ -1,15 +1,24 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@assets/*": ["src/assets/*"]
-    },
-    "strictNullChecks": true,
-    "allowImportingTsExtensions": true
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"types": ["astro/client"],
+		"baseUrl": ".",
+		"paths": {
+			"@global/*": ["src/components/global/*"],
+			"@component/*": ["src/components/*"],
+			"@layout/*": ["src/layouts/*"],
+			"@page/*": ["src/pages/*"],
+			"@style/*": ["src/styles/*"],
+			"@util/*": ["utils/*"],
+			"@img/*": ["src/assets/img/*"],
+			"@svg/*": ["src/assets/svg/*"],
+			"@icon/*": ["src/components/icons/*"],
+		},
+		"strictNullChecks": true,
+    // "allowImportingTsExtensions": true
   },
   "allowJs": true
 }
