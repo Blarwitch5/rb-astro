@@ -1,7 +1,18 @@
-This Astro starter was built by Shaun Chander!
+/* Creator */
+  [NAME]: Romain Blary
+  [LOCATION]: France, Switzerland
+  [OCCUPATION]: Web Developer
+  [WEBSITE]: https://romainblary.com
+  [TWITTER]: https://twitter.com/blarwitch5
+  [LINKEDIN]: https://www.linkedin.com/in/romainblary/
+  [GITHUB]: https://github.com/blarwitch5
 
-GitHub: https://github.com/shaunchander
-Twitter: https://twitter.com/shaunchander
-Personal: https://shaunchander.me
+  
 
-Checkout the https://humanstxt.org/ protocol to see how you should format your humans.txt file!
+/* SITE */
+	Last update:2012/02/04
+	Language: English
+	Doctype: HTML5
+  Framework: Astro and TailwindCSSs
+	IDE: VS Code
+  Design: Figma, Affinity Designer, Affinity Photo
