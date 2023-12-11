@@ -14,6 +14,9 @@ dependencies:
   '@rollup/plugin-terser':
     specifier: ^0.4.4
     version: 0.4.4(rollup@2.79.1)
+  '@vercel/speed-insights':
+    specifier: ^1.0.1
+    version: 1.0.1
   aos:
     specifier: 3.0.0-beta.6
     version: 3.0.0-beta.6
@@ -2355,6 +2358,11 @@ packages:
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  /@vercel/speed-insights@1.0.1:
+    resolution: {integrity: sha512-cm8KTTsDgS1AbWsgIEZuMoyPUjclzeqJihyLp0tnA21B/x9iTE8hu2S5zM+/DBzihuHxWL1dx9pCWk22ctMFWQ==}
+    requiresBuild: true
+    dev: false
 
   /@vite-pwa/astro@0.1.6(astro@4.0.2)(vite-plugin-pwa@0.17.4):
     resolution: {integrity: sha512-NVtVusXG17nCfIQI3nSenz1d2jO89ZNCsFDk6/S+z3ulxerqHkPOXBtZTba89glhgSmJZsKibA7NWF/SxEU0iA==}
