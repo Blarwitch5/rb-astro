@@ -1,0 +1,19 @@
+---
+const { href, class: className, target, rel } = Astro.props;
+---
+
+<a
+	target={target || "_blank"}
+	rel={rel || "noopener noreferrer"}
+	href={href}
+	class:list={[
+		"dark-mode-button to-lt-indigo- hover:shadow-outline flex w-full    rounded bg-gradient-to-br from-lt-indigo-solid-color-button via-lt-grimsom-solid-color-button to-lt-indigo-high-contrast-text p-0.5 text-sm dark:from-dt-teal-solid-color-button dark:via-dt-amber-border-focus dark:to-dt-teal-high-contrast-text",
+		{ className },
+	]}
+>
+	<div
+		class="flex h-full w-full flex-nowrap items-center justify-center gap-2 rounded-sm bg-lt-indigo-bg p-2 ring-1 ring-lt-indigo-bg hover:bg-lt-indigo-bg-alt dark:bg-dt-teal-bg dark:ring-dt-teal-bg dark:hover:bg-dt-teal-bg-alt"
+	>
+		<slot />
+	</div>
+</a>

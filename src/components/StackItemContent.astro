@@ -1,0 +1,22 @@
+---
+// Get the component name from props
+const {
+	iconTxt,
+	gradient,
+	IconComponentName,
+	svgContentLight,
+	svgContentDark
+} = Astro.props
+---
+
+<span class="h-6 w-6 text-dt-teal-bg dark:text-lt-indigo-bg">
+	<IconComponentName
+		withGradient={gradient ? true : undefined}
+		{svgContentLight}
+		{svgContentDark}
+	/>
+</span><span
+	class={gradient
+		? "bg-gradient-to-r from-lt-grimsom-solid-color-button to-lt-indigo-solid-color-button bg-clip-text text-transparent dark:from-dt-amber-solid-color-button dark:to-dt-teal-solid-color-button"
+		: "text-lt-indigo-txt dark:text-dt-teal-txt"}>{iconTxt}</span
+>

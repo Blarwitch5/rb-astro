@@ -1,0 +1,124 @@
+---
+import Logo from "@component/ui/Logo.astro";
+import MenuItem from "@component/MenuItem.astro";
+import ThemeSwitcher from "@component/ui/ThemeSwitcher.astro";
+---
+
+<nav class="w-full">
+	<div class="mx-auto flex max-w-screen-xl items-center justify-between p-4">
+		<div class="w-6 sm:w-12">
+			<Logo />
+			<span class="sr-only">Romain Blary</span>
+		</div>
+
+		<ThemeSwitcher class="ml-auto mr-4 md:order-3 md:ml-0 md:mr-0" />
+		<div
+			class="absolute left-0 top-0 hidden h-full max-h-screen w-full flex-col items-center justify-center bg-lt-indigo-bg dark:bg-dt-teal-bg md:relative md:order-2 md:ml-auto md:mr-4 md:flex md:h-auto md:w-auto md:flex-row md:gap-4 md:bg-transparent dark:md:bg-transparent"
+			id="navbar-default"
+		>
+			<ul
+				class="x flex flex-col flex-nowrap gap-3 text-4xl sm:gap-4 sm:text-4xl md:flex-row md:gap-6 md:text-base lg:text-lg"
+			>
+				<MenuItem itemNumber="01" slug="/#skills" itemName="Skills" />
+				<MenuItem itemNumber="02" slug="/#projects" itemName="Projects" />
+				<MenuItem itemNumber="03" slug="/#contact" itemName="Contact" />
+			</ul>
+
+			<!--<a
+      href="/sporting-life"
+      class="flex flex-col items-end text-xs sm:text-sm md:text-base lg:text-lg""
+      ><Icon class="w-12 h-12 sm:h-4 sm:w-4 text-lt-indigo-high-contrast-text dark:text-dt-teal-high-contrast-text" name="stars"/>My sporting life </a
+    > -->
+		</div>
+		<button
+			data-collapse-toggle="navbar-default"
+			type="button"
+			class="menu hover:shadow-outline z-10 flex cursor-pointer items-center justify-center rounded border border-lt-indigo-border p-1.5 hover:border-lt-indigo-border-focus hover:bg-lt-indigo-interactive-component/[.1] focus:outline-none focus:ring-1 focus:ring-lt-indigo-border-focus dark:border-dt-teal-border dark:hover:border-dt-teal-border-focus dark:hover:bg-dt-teal-interactive-component/[.1] dark:focus:ring-dt-teal-border-focus sm:p-2 md:hidden"
+			aria-controls="navbar-default"
+			aria-expanded="false"
+			onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+		>
+			<svg class="h-6 w-6" viewBox="0 0 100 100">
+				<path
+					class="line line1 stroke-lt-indigo-secondary-text-links dark:stroke-dt-teal-secondary-text-links"
+					d="M 20 29 H 80 C 80 29 94.5 28.8 94.5 66.7 94.5 78 91 82 85.3 82 79.6 82 75 75 75 75 L 25 25"
+				></path>
+				<path
+					class="line line2 stroke-lt-indigo-secondary-text-links dark:stroke-dt-teal-secondary-text-links"
+					d="M 20 50 H 80"></path>
+				<path
+					class="line line3 stroke-lt-indigo-secondary-text-links dark:stroke-dt-teal-secondary-text-links"
+					d="M 20 71 H 80 C 80 71 94.5 71.2 94.5 33.3 94.5 22 91 18.3 85.3 18.3 79.6 18.3 75 25 75 25 L 25 75"
+				></path>
+			</svg>
+			<span class="sr-only">Open main menu</span>
+		</button>
+	</div>
+</nav>
+<script>
+	const btn = document.querySelector(
+		"button[data-collapse-toggle='navbar-default']",
+	) as HTMLElement | null;
+	const menu = document.querySelector("#navbar-default");
+
+	if (btn && menu) {
+		btn.addEventListener("click", () => {
+			menu.classList.toggle("hidden");
+			menu.classList.toggle("flex");
+			const expanded = menu.classList.contains("hidden") ? "false" : "true";
+			btn.setAttribute("aria-expanded", expanded);
+			menu.setAttribute("aria-hidden", String(!expanded));
+		});
+
+		btn.addEventListener("keydown", (event) => {
+			if (event.key === "Enter") {
+				btn.click();
+				event.preventDefault();
+			}
+		});
+
+		menu.addEventListener("keydown", (event) => {
+			if ((event as KeyboardEvent).key === "Escape") {
+				menu.classList.add("hidden");
+				menu.classList.remove("flex");
+				btn.focus();
+			}
+		});
+	}
+</script>
+<style>
+	.line {
+		fill: none;
+		stroke-width: 6;
+		transition:
+			stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+			stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	.line1 {
+		stroke-dasharray: 60 207;
+		stroke-width: 6;
+	}
+	.line2 {
+		stroke-dasharray: 60 60;
+		stroke-width: 6;
+	}
+	.line3 {
+		stroke-dasharray: 60 207;
+		stroke-width: 6;
+	}
+	.menu[aria-expanded="true"] .line1 {
+		stroke-dasharray: 90 207;
+		stroke-dashoffset: -134;
+		stroke-width: 6;
+	}
+	.menu[aria-expanded="true"] .line2 {
+		stroke-dasharray: 1 60;
+		stroke-dashoffset: -30;
+		stroke-width: 6;
+	}
+	.menu[aria-expanded="true"] .line3 {
+		stroke-dasharray: 90 207;
+		stroke-dashoffset: -134;
+		stroke-width: 6;
+	}
+</style>

@@ -1,0 +1,28 @@
+---
+import Socials from "@component/Socials.astro";
+import Logo from "@component/ui/Logo.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="flex flex-col items-center gap-2">
+	<div class="inline-flex w-full items-center justify-center">
+		<hr
+			class="my-8 h-px w-full border-0 bg-gradient-to-r from-lt-indigo-bg to-lt-indigo-border-focus dark:from-dt-teal-bg dark:to-dt-teal-border-focus"
+		/>
+		<Logo class="h-32 w-32 p-4" />
+		<hr
+			class="text- my-8 h-px w-full border-0 bg-gradient-to-r from-lt-grimsom-border-focus to-lt-indigo-bg dark:from-dt-amber-border-focus dark:to-dt-teal-bg"
+		/>
+	</div>
+	<p class="text-center">
+		Built and designed by me, <span
+			class="bg-gradient-to-r from-lt-indigo-solid-color-button to-lt-grimsom-solid-color-button bg-clip-text font-sans font-extrabold text-transparent dark:from-dt-teal-solid-color-button dark:to-dt-amber-solid-color-button"
+			>Romain Blary</span
+		>
+	</p><p
+		class="text-lt-solid-color-button dark:text-dt-solid-color-button font-bold"
+	>
+		© Copyright {currentYear} - Romain Blary
+	</p>
+</footer>

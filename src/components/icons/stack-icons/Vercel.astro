@@ -1,0 +1,61 @@
+---
+const { class: className, withGradient } = Astro.props
+---
+
+<!-- Light theme SVG -->
+<svg
+	class:list={`${className} ${withGradient ? "light-theme" : ""}`}
+	xml:space="preserve"
+	fill-rule="evenodd"
+	stroke-linejoin="round"
+	stroke-miterlimit="2"
+	clip-rule="evenodd"
+	viewBox="0 0 24 24"
+>
+	<path d="M24 22.525H0L12 1.47498L24 22.525Z" fill="url(#light)"></path>
+
+	<defs>
+		<linearGradient
+			id="light"
+			x1="0"
+			x2="1"
+			y1="0"
+			y2="0"
+			gradientTransform="matrix(20 0 0 20 2 12)"
+			gradientUnits="userSpaceOnUse"
+		>
+			<stop offset="0" stop-color="#5B5BD6"></stop>
+			<stop offset=".33" stop-color="#5B5BD6"></stop>
+			<stop offset="1" stop-color="#E93D82"></stop>
+		</linearGradient>
+	</defs>
+</svg>
+
+<!-- Dark theme SVG -->
+<svg
+	class:list={`${className} ${withGradient ? "dark-theme" : ""}`}
+	xml:space="preserve"
+	fill-rule="evenodd"
+	stroke-linejoin="round"
+	stroke-miterlimit="2"
+	clip-rule="evenodd"
+	viewBox="0 0 24 24"
+>
+	<path d="M24 22.525H0L12 1.47498L24 22.525Z" fill="url(#dark)"></path>
+
+	<defs>
+		<linearGradient
+			id="dark"
+			x1="0"
+			x2="1"
+			y1="0"
+			y2="0"
+			gradientTransform="matrix(20 0 0 20 2 12)"
+			gradientUnits="userSpaceOnUse"
+		>
+			<stop offset="0" stop-color="#12A594"></stop>
+			<stop offset=".33" stop-color="#12A594"></stop>
+			<stop offset="1" stop-color="#FFC53D"></stop>
+		</linearGradient>
+	</defs>
+</svg>

@@ -1,21 +1,30 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import About from "@components/sections/About.astro";
-import Skills from "@components/sections/Skills.astro";
-import Projects from "@components/sections/Projects.astro";
-import Contact from "@components/sections/Contact.astro";
+// Component imports
+
+import Layout from "@layout/Layout.astro";
+import Footer from "@component/global/Footer.astro";
+import Header from "@component/global/Header.astro";
+import About from "@component/sections/About.astro";
+import Skills from "@component/sections/Skills.astro";
+import Projects from "@component/sections/Projects.astro";
+import Contact from "@component/sections/Contact.astro";
+import Main from "@component/ui/Main.astro";
 ---
 
-<Layout title="Welcome to Romain Blary's personal site">
-  <Header/>  
-  <main>
-    <h1>Romain Blary</h1>
-    <About/>
-    <Skills/>
-    <Projects/>
-    <Contact/>
-  </main>
-  <Footer />
+<Layout title="Romain Blary's personal website - Web developers">
+	<Header />
+	<Main>
+		<About />
+		<Skills />
+		<Projects />
+		<Contact />
+	</Main>
+	<Footer />
 </Layout>
+
+<script>
+	import { handleThemeChange } from "../js/global.ts";
+
+	document.addEventListener("theme-changed", handleThemeChange);
+	window.addEventListener("pageshow", handleThemeChange);
+</script>

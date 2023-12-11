@@ -1,5 +1,3 @@
-// Type imports
-import type { ManifestOptions } from "vite-plugin-pwa"
 
 /**
  * Defines the default SEO configuration for the website.
@@ -24,14 +22,13 @@ export const seoConfig = {
 /**
  * Defines the configuration for PWA webmanifest.
  */
-export const manifest: Partial<ManifestOptions> = {
-	name: "Romain Blary's personal site - Web Developer", // Change this to your website's name.
-	short_name: "Romain Blary's personal site - Web Developer", // Change this to your website's short name.
+export const manifest = {
+	name: "Romain Blary's personal site", // Change this to your website's name.
+	short_name: "Romain Blary", // Change this to your website's short name.
 	description:
 		"Welcome to Romain Blary's personal site. I'm a web developer based in Geneva. I'm passionate about web development, design, and technology in general.", // Change this to your websites description.
-	theme_color: "#12A594", // Change this to your primary color.
-	background_color: "#0D1514", // Change this to your background color.
-	display: "minimal-ui",
+	theme_color: "#fff", // Change this to your primary color.
+	background_color: "#fff", // Change this to your background color.
 	icons: [
 		{
 			src: "/favicons/favicon-192x192.png",

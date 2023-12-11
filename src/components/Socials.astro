@@ -1,1 +1,56 @@
-socials
+---
+import Discord from "@icon/social-icons/Discord.astro";
+import X from "@icon/social-icons/X.astro";
+import Mail from "@icon/social-icons/Mail.astro";
+import Linkedin from "@icon/social-icons/Linkedin.astro";
+import Codepen from "@icon/social-icons/Codepen.astro";
+import Github from "@icon/social-icons/Github.astro";
+import SocialIconLink from "./SocialIconLink.astro";
+---
+
+<ul
+	class="flex flex-row flex-wrap gap-4 font-sans text-lt-indigo-txt dark:text-dt-teal-txt"
+>
+	<li>
+		<SocialIconLink
+			href="https://ch.linkedin.com/in/romainblary"
+			IconName={Linkedin}
+			text="LinkedIn"
+		/>
+	</li>
+	<li>
+		<SocialIconLink
+			href="https://github.com/Blarwitch5"
+			IconName={Github}
+			text="Github"
+		/>
+	</li>
+	<li>
+		<SocialIconLink
+			href="https://discord.com/users/694443716659773441"
+			IconName={Discord}
+			text="Discord"
+		/>
+	</li>
+	<li>
+		<SocialIconLink
+			href="https://codepen.io/Blarwitch5"
+			IconName={Codepen}
+			text="CodePen"
+		/>
+	</li>
+	<li>
+		<SocialIconLink
+			href="https://twitter.com/Blarwitch5"
+			IconName={X}
+			text="Twitter"
+		/>
+	</li>
+	<li>
+		<SocialIconLink
+			href="mailto:contact@romainblary.com"
+			IconName={Mail}
+			text="eMail"
+		/>
+	</li>
+</ul>

@@ -1,3 +1,53 @@
-<div>
-  helloe about
-</div>
+---
+import { Picture } from "astro:assets";
+import Socials from "@component/Socials.astro";
+import Title from "@component/ui/Title.astro";
+---
+
+<section
+	id="about"
+	class="about m-auto flex w-full max-w-6xl flex-col items-center justify-center gap-6 px-4 sm:gap-16 lg:flex-row"
+>
+	<div class="flex w-full justify-center">
+		<Picture
+			formats={["webp"]}
+			src="/images/romain-blary-back.jpg"
+			alt="Romain Blary from the back, facing Mount Batur in Bali"
+			loading="lazy"
+			width="500"
+			height="500"
+			class="img h-full w-full max-w-xs rounded-full object-cover outline outline-4 outline-offset-4 outline-lt-indigo-solid-color-button dark:outline-dt-teal-solid-color-button lg:w-full"
+		/>
+	</div>
+	<div class="bg-shape flex flex-col gap-4">
+		<p>Hello, hello everyone ! My name is</p>
+		<Title
+			level="1"
+			data-aos="zoom-in"
+			class="w-fit bg-gradient-to-r from-lt-indigo-solid-color-button to-lt-grimsom-solid-color-button bg-clip-text font-sans font-extrabold text-transparent dark:from-dt-teal-solid-color-button dark:to-dt-amber-solid-color-button"
+		>
+			Romain Blary
+		</Title>
+		<p>
+			<span class="font-extrabold"> Web Developer.</span> I design, build, and
+			maintain websites. I try to bring digital ideas to life and ensure that
+			websites are functional, user-friendly, and visually appealing.
+		</p>
+		<Socials />
+	</div>
+</section>
+
+<!-- <style>
+	.img {
+		border-image: linear-gradient(
+				theme("colors.lt-indigo-bg-alt"),
+				50%,
+				#0000 0
+			)
+			fill 0 //100vh 4px;;
+	}
+	html.dark .img {
+		border-image: linear-gradient(theme("colors.dt-teal-bg-alt"), 50%, #0000 0)
+			fill 0 //100vh 4px;;
+	}
+</style> -->

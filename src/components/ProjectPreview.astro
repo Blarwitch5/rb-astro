@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import Title from "@component/ui/Title.astro";
+import Enter from "@icon/Enter.astro";
+
+interface Props {
+	project: CollectionEntry<"work">;
+}
+
+const { data, slug } = Astro.props.project;
+---
+
+<div
+	class="card grid-rows-auto-1fr text-no-underline grid h-52 grid-cols-2 overflow-hidden rounded-3xl font-medium md:h-80"
+>
+	<Title
+		level="3"
+		class="title z-[2] col-start-1 col-end-3 row-start-1 row-end-2 m-2 rounded-md p-2"
+	>
+		{data.title}
+	</Title>
+	<a
+		href=`/work/${slug}`
+		class="absolute inset-0 z-30 flex items-center justify-end p-4"
+	>
+		<Enter class="h-6 w-6" />
+		<span class="sr-only">Project {data.title}</span></a
+	>
+	<img
+		src={data.img}
+		alt={data.img_alt || ""}
+		loading="lazy"
+		decoding="async"
+		class="col-start-1 col-end-3 row-start-1 row-end-3 h-52 w-full rounded-3xl object-cover md:h-80"
+	/>
+	<ul
+		class="z-[2] col-start-1 col-end-3 row-start-2 row-end-3 flex flex-nowrap items-end justify-start gap-4 p-4 text-sm"
+	>
+		{
+			data.tags.map((tag) => (
+				<li class="color-lt-indigo-high-contrast-text dark:color-dt-teal-high-contrast-text rounded-2xl border border-lt-indigo-border-focus bg-lt-indigo-interactive-component p-2 dark:border-dt-teal-border-focus dark:bg-dt-teal-solid-color-button">
+					{tag}
+				</li>
+			))
+		}
+	</ul>
+</div>

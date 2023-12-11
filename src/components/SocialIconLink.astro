@@ -1,0 +1,9 @@
+---
+import GradientBorderTag from "@component/GradientBorderTag.astro";
+const { href, class: className, IconName, text } = Astro.props;
+---
+
+<GradientBorderTag>
+	<IconName class="h-6 w-6 text-lt-indigo-txt dark:text-dt-teal-txt" />
+	{text}
+</GradientBorderTag>

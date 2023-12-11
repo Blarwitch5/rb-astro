@@ -1,3 +1,20 @@
-<div>
-  helloe contact
-</div>
+---
+import Socials from "@component/Socials.astro"
+import Title from "@component/ui/Title.astro"
+---
+
+<section id="contact" class="flex flex-col items-center gap-6 sm:gap-12">
+	<Title
+		level="2"
+		data-aos="zoom-in"
+		class="pb-s12 bg-gradient-to-r from-lt-indigo-solid-color-button to-lt-grimsom-solid-color-button bg-clip-text font-sans text-5xl font-extrabold text-transparent dark:from-dt-teal-solid-color-button dark:to-dt-amber-solid-color-button"
+	>
+		Contact
+	</Title>
+	<p>
+		Please don't hesitate to reach out to me via email or connect with me on my
+		social media profiles.
+	</p>
+
+	<Socials />
+</section>

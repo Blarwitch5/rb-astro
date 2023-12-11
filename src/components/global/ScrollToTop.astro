@@ -1,0 +1,52 @@
+<div
+  class="fixed bottom-8 right-8 hidden flex-col gap-3 md:hidden"
+  id="commentsAndScrollToTopButtons"
+>
+  <button
+    aria-label="Scroll To Top"
+    id="scrollToTopButton"
+    class="bg-lt-indigo-interactive-component/[.2] dark:bg-dt-teal-interactive-component/[.2] border rounded p-1.5 sm:p-2 border-lt-indigo-border hover:border-lt-indigo-border-focus dark:border-dt-teal-border dark:hover:border-dt-teal-border-focus"
+  >
+    <svg
+      class="h-5 w-5"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      class="w-4 h-4 sm:w-6 sm:h-6 text-lt-indigo-high-contrast-text dark:text-dt-teal-high-contrast-text"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"
+        clip-rule="evenodd"></path>
+    </svg>
+  </button>
+</div>
+
+<script lang="ts">
+  // Prevents the script from being executed multiple times
+  // This is due to Astro's ViewTransition feature
+  globalThis.isInitialized = false;
+
+  if (!globalThis.isInitialized) {
+    const scrollToTopButton = document.getElementById("scrollToTopButton");
+    const commentsAndScrollToTopButtons = document.getElementById(
+      "commentsAndScrollToTopButtons"
+    );
+
+    scrollToTopButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    window.addEventListener("scroll", () => {
+      commentsAndScrollToTopButtons.classList.toggle(
+        "md:hidden",
+        window.scrollY < 50
+      );
+      commentsAndScrollToTopButtons.classList.toggle(
+        "md:flex",
+        window.scrollY >= 50
+      );
+    });
+
+    globalThis.isInitialized = true;
+  }
+</script>

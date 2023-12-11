@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import { SEO } from "astro-seo";
+
+import Layout from "@layout/Layout.astro";
+import Footer from "@component/global/Footer.astro";
+import Header from "@component/global/Header.astro";
+import Main from "@component/ui/Main.astro";
+
+import ProjectPreview from "@component/ProjectPreview.astro";
+
+// Content Fetching: List four most recent work projects
+const projects = (await getCollection("work"))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+	.slice(0, 99);
+---
+
+<SEO
+	title="My work - Romain Blary"
+	description="You'll find here all my work, enjoy the visit !"
+/>
+<Layout title="All my work">
+	<Header />
+	<Main>
+		<section id="projects">
+			<h2
+				class="m-auto w-fit justify-self-center bg-gradient-to-r from-lt-indigo-solid-color-button to-lt-grimsom-solid-color-button bg-clip-text text-5xl font-extrabold text-transparent"
+			>
+				Projects
+			</h2>
+			<div class="gallery">
+				<ul>
+					{
+						projects.map((project) => (
+							<li>
+								<ProjectPreview project={project} />
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+	</Main>
+	<Footer />
+</Layout>

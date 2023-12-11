@@ -1,0 +1,22 @@
+---
+interface Props {
+	level?: "1" | "2" | "3" | "4" | "5" | "6";
+	class?: string;
+	animate?: boolean;
+}
+
+const { level, class: className, animate, ...rest } = Astro.props;
+const TitlLevel = `h${level}`;
+---
+
+{
+	TitlLevel && (
+		<TitlLevel
+			class:list={["font-sans", className]}
+			{...rest}
+			data-aos={animate ? "zoom-in" : undefined}
+		>
+			<slot />
+		</TitlLevel>
+	)
+}

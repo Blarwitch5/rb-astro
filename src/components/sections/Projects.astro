@@ -1,3 +1,36 @@
-<div>
-  helloe shwocase
-</div>
+---
+import Title from "@component/ui/Title.astro";
+
+import { getCollection } from "astro:content";
+
+import ProjectPreview from "@component/ProjectPreview.astro";
+// Content Fetching: List four most recent work projects
+const projects = (await getCollection("work"))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+	.slice(0, 4);
+---
+
+<section id="projects">
+	<Title
+		level="2"
+		data-aos="zoom-in"
+		class="m-auto w-fit justify-self-center bg-gradient-to-r from-lt-indigo-solid-color-button to-lt-grimsom-solid-color-button bg-clip-text pb-12 font-sans text-5xl font-extrabold text-transparent dark:from-dt-teal-solid-color-button dark:to-dt-amber-solid-color-button"
+	>
+		Projects
+	</Title>
+	<div class="gallery">
+		<ul
+			class="grid-rows-auto grid list-none gap-8 p-0 md:grid-cols-2 md:gap-16 md:pb-32"
+			data-aos="zoom-in"
+		>
+			{
+				projects.map((project) => (
+					<li class="relative col-span-1 rounded-3xl bg-transparent shadow-lg shadow-lt-indigo-interactive-component  transition duration-300 ease-in-out hover:shadow-2xl dark:shadow-dt-teal-interactive-component md:even:translate-y-32 md:even:transform md:last:even:col-start-2 md:last:even:col-end-3 md:last:even:transform-none">
+						<span class="z-1 absolute block h-full w-full rounded-3xl bg-gradient-to-br from-lt-indigo-solid-color-button/75 to-lt-grimsom-solid-color-button/75 dark:from-dt-teal-solid-color-button/75 dark:to-dt-amber-solid-color-button/75" />
+						<ProjectPreview project={project} />
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

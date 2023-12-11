@@ -1,3 +1,101 @@
-<div>
-  helloe skills
-</div>
+---
+import Figma from "@icon/stack-icons/Figma.astro";
+import Tailwind from "@icon/stack-icons/Tailwind.astro";
+import AstroIcon from "@icon/stack-icons/AstroIcon.astro";
+import React from "@icon/stack-icons/React.astro";
+import Wordpress from "@icon/stack-icons/Wordpress.astro";
+import Vercel from "@icon/stack-icons/Vercel.astro";
+import Github from "@icon/stack-icons/Github.astro";
+import Title from "@component/ui/Title.astro";
+
+import StackItem from "@component/StackItem.astro";
+import StackItemContent from "@component/StackItemContent.astro";
+---
+
+<section id="skills" class="flex flex-col py-32">
+	<Title
+		level="2"
+		class="m-auto w-fit justify-self-center bg-gradient-to-r from-lt-indigo-solid-color-button to-lt-grimsom-solid-color-button bg-clip-text pb-12 font-sans text-5xl font-extrabold text-transparent dark:from-dt-teal-solid-color-button dark:to-dt-amber-solid-color-button"
+	>
+		Skills
+	</Title>
+	<div class="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+		<div
+			data-aos="fade-up"
+			class="w-full rounded border border-lt-indigo-border/[.2] bg-lt-indigo-bg-alt p-8 dark:border-dt-teal-border/[.2] dark:bg-dt-teal-bg-alt"
+		>
+			<Title level="3" class="text-center text-2xl font-bold md:text-left">
+				Design
+			</Title>
+			<ul class="mt-4 flex flex-col gap-2">
+				<StackItem>
+					<StackItemContent
+						gradient
+						IconComponentName={Figma}
+						iconTxt="Figma"
+					/>
+				</StackItem>
+				<StackItem>
+					<StackItemContent IconComponentName={Tailwind} iconTxt="Tailwind" />
+				</StackItem>
+			</ul>
+		</div>
+		<div
+			data-aos="fade-up"
+			class="w-full rounded border border-lt-indigo-border/[.2] bg-lt-indigo-bg-alt p-8 dark:border-dt-teal-border/[.2] dark:bg-dt-teal-bg-alt"
+			data-aos-delay="150"
+		>
+			<Title level="3" class="text-center text-2xl font-bold md:text-left">
+				Frameworks
+			</Title><ul class="mt-4 flex flex-col gap-2">
+				<StackItem>
+					<StackItemContent
+						gradient
+						IconComponentName={AstroIcon}
+						iconTxt="Astro"
+					/>
+				</StackItem>
+				<StackItem>
+					<StackItemContent IconComponentName={React} iconTxt="React" />
+				</StackItem>
+			</ul>
+		</div>
+		<div
+			data-aos="fade-up"
+			class="w-full rounded border border-lt-indigo-border/[.2] bg-lt-indigo-bg-alt p-8 dark:border-dt-teal-border/[.2] dark:bg-dt-teal-bg-alt"
+			data-aos-delay="300"
+		>
+			<Title level="3" class="text-center text-2xl font-bold md:text-left">
+				CMS
+			</Title>
+			<ul class="mt-4 flex flex-col gap-2">
+				<StackItem>
+					<StackItemContent
+						gradient
+						IconComponentName={Wordpress}
+						iconTxt="Wordpress"
+					/>
+				</StackItem>
+			</ul>
+		</div>
+		<div
+			data-aos="fade-up"
+			class="w-full rounded border border-lt-indigo-border/[.2] bg-lt-indigo-bg-alt p-8 dark:border-dt-teal-border/[.2] dark:bg-dt-teal-bg-alt"
+			data-aos-delay="450"
+		>
+			<Title level="3" class="text-center text-2xl font-bold md:text-left">
+				Other
+			</Title><ul class="mt-4 flex flex-col gap-2">
+				<StackItem>
+					<StackItemContent
+						gradient
+						IconComponentName={Vercel}
+						iconTxt="Vercel"
+					/>
+				</StackItem><StackItem>
+					<StackItemContent IconComponentName={Github} iconTxt="git/github" />
+				</StackItem>
+			</ul>
+		</div>
+	</div>
+</section>
