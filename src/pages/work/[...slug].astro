@@ -26,22 +26,24 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title} description={entry.data.description}>
-	<div class="my-48 md:my-64 xl:my-96">
-		<div class="absolute left-0 top-16">
+	<div class="my-4 sm:my-64 xl:my-96">
+		<div
+			class="relative mb-8 sm:absolute sm:left-4 sm:top-16 sm:mb-0 md:left-0"
+		>
 			<a
 				class="hover:shadow-outline rounded border border-lt-indigo-border p-1.5 text-lt-indigo-high-contrast-text hover:bg-lt-indigo-interactive-component/[.1] dark:border-dt-teal-border dark:text-dt-teal-high-contrast-text dark:hover:bg-dt-teal-interactive-component/[.1] sm:p-2"
 				href="/#projects"
 				data-astro-reload>Back</a
 			>
 		</div>
-		<header class="flex flex-col gap-6">
+		<header class="flex flex-col items-center gap-6">
 			{
 				entry.data.img && (
 					<img
 						src={entry.data.img}
 						alt={entry.data.img_alt || ""}
-						class="absolute left-1/2 top-0 h-48 w-1/2
-						 -translate-x-1/2 rounded-b-3xl  object-cover md:h-64 xl:h-96"
+						class=" sm:rounded-t-0 relative h-64 w-64 rounded-3xl object-cover sm:absolute sm:left-1/2 sm:top-0
+						 sm:w-1/2 sm:-translate-x-1/2  sm:rounded-t-none md:h-64 xl:h-96"
 					/>
 				)
 			}
