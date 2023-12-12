@@ -40,6 +40,7 @@
 		"@vercel/speed-insights": "^1.0.1",
 		"aos": "3.0.0-beta.6",
 		"astro-icon": "^0.8.2",
+		"romain-blary-personal": "link:",
 		"tailwindcss": "^3.3.6"
 	}
 }

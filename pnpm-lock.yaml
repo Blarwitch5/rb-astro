@@ -26,6 +26,9 @@ dependencies:
   astro-icon:
     specifier: ^0.8.2
     version: 0.8.2
+  romain-blary-personal:
+    specifier: 'link:'
+    version: 'link:'
   tailwindcss:
     specifier: ^3.3.6
     version: 3.3.6

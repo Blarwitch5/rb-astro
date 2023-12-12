@@ -62,16 +62,18 @@ import ThemeSwitcher from "@component/ui/ThemeSwitcher.astro";
 	const menu = document.querySelector("#navbar-default");
 	const body = document.querySelector("body");
 
-	if (btn && menu && body) {
+	if (btn && body) {
 		btn.addEventListener("click", () => {
-			menu.classList.toggle("hidden");
-			menu.classList.toggle("flex");
-			const expanded = menu.classList.contains("hidden") ? "false" : "true";
-			btn.setAttribute("aria-expanded", expanded);
-			menu.setAttribute("aria-hidden", String(!expanded));
+			if (menu) {
+				menu.classList.toggle("hidden");
+				menu.classList.toggle("flex");
+				const expanded = menu.classList.contains("hidden") ? "false" : "true";
+				btn.setAttribute("aria-expanded", expanded);
+				menu.setAttribute("aria-hidden", String(!expanded));
 
-			// Add or remove 'overflow-hidden' class to body
-			body.classList.toggle("overflow-hidden");
+				// Add or remove 'overflow-hidden' class to body
+				body.classList.toggle("overflow-hidden");
+			}
 		});
 
 		btn.addEventListener("keydown", (event) => {
@@ -81,16 +83,28 @@ import ThemeSwitcher from "@component/ui/ThemeSwitcher.astro";
 			}
 		});
 
-		menu.addEventListener("keydown", (event) => {
-			if ((event as KeyboardEvent).key === "Escape") {
-				menu.classList.add("hidden");
-				menu.classList.remove("flex");
-				btn.focus();
+		if (menu) {
+			menu.addEventListener("keydown", (event) => {
+				if ((event as KeyboardEvent).key === "Escape") {
+					menu.classList.add("hidden");
+					menu.classList.remove("flex");
+					btn.focus();
 
-				// Remove 'overflow-hidden' class from body
-				body.classList.remove("overflow-hidden");
-			}
-		});
+					// Remove 'overflow-hidden' class from body
+					body.classList.remove("overflow-hidden");
+				}
+			});
+
+			// Remove 'overflow-hidden' class from body and hide the menu when a menu link is clicked
+			const links = menu.querySelectorAll("a");
+			links.forEach((link) => {
+				link.addEventListener("click", () => {
+					body.classList.remove("overflow-hidden");
+					menu.classList.add("hidden");
+					menu.classList.remove("flex");
+				});
+			});
+		}
 	}
 </script>
 <style>
