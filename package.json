@@ -33,6 +33,7 @@
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^2.0.0",
+		"@astrojs/vercel": "^6.0.2",
 		"@jridgewell/sourcemap-codec": "^1.4.15",
 		"@rollup/plugin-terser": "^0.4.4",
 		"@vercel/speed-insights": "^1.0.1",

@@ -6,11 +6,14 @@ import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
 import AstroPWA from "@vite-pwa/astro";
 import mdx from "@astrojs/mdx";
+import vercelEdge from "@astrojs/vercel/edge";
 
 // Helper imports
 import { manifest, seoConfig } from "./utils/seoConfig";
 
 export default defineConfig({
+	output: "server",
+	adapter: vercelEdge(),
 	site: seoConfig.baseURL,
 	i18n: {
 		defaultLocale: "en",
