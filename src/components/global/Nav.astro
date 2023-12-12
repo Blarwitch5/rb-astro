@@ -17,7 +17,7 @@ import ThemeSwitcher from "@component/ui/ThemeSwitcher.astro";
 			id="navbar-default"
 		>
 			<ul
-				class="x flex flex-col flex-nowrap gap-3 text-4xl sm:gap-4 sm:text-4xl md:flex-row md:gap-6 md:text-base lg:text-lg"
+				class="x flex w-1/2 flex-col flex-nowrap gap-6 text-4xl sm:text-4xl md:w-auto md:flex-row md:text-base lg:text-lg"
 			>
 				<MenuItem itemNumber="01" slug="/#skills" itemName="Skills" />
 				<MenuItem itemNumber="02" slug="/#projects" itemName="Projects" />
@@ -60,14 +60,18 @@ import ThemeSwitcher from "@component/ui/ThemeSwitcher.astro";
 		"button[data-collapse-toggle='navbar-default']",
 	) as HTMLElement | null;
 	const menu = document.querySelector("#navbar-default");
+	const body = document.querySelector("body");
 
-	if (btn && menu) {
+	if (btn && menu && body) {
 		btn.addEventListener("click", () => {
 			menu.classList.toggle("hidden");
 			menu.classList.toggle("flex");
 			const expanded = menu.classList.contains("hidden") ? "false" : "true";
 			btn.setAttribute("aria-expanded", expanded);
 			menu.setAttribute("aria-hidden", String(!expanded));
+
+			// Add or remove 'overflow-hidden' class to body
+			body.classList.toggle("overflow-hidden");
 		});
 
 		btn.addEventListener("keydown", (event) => {
@@ -82,6 +86,9 @@ import ThemeSwitcher from "@component/ui/ThemeSwitcher.astro";
 				menu.classList.add("hidden");
 				menu.classList.remove("flex");
 				btn.focus();
+
+				// Remove 'overflow-hidden' class from body
+				body.classList.remove("overflow-hidden");
 			}
 		});
 	}

@@ -3,11 +3,14 @@ const { itemNumber, slug, itemName } = Astro.props;
 ---
 
 <li class="flex flex-col items-end">
-  <span
-    class="text-xs text-transparent bg-clip-text bg-gradient-to-r from-lt-indigo-solid-color-button to-lt-grimsom-solid-color-button dark:from-dt-teal-solid-color-button dark:to-dt-amber-solid-color-button"
-    >{itemNumber}.</span
-  >
-  <a href={slug}>
-    {itemName}
-  </a>
+	<span
+		class="bg-gradient-to-r from-lt-indigo-solid-color-button to-lt-grimsom-solid-color-button bg-clip-text text-xs text-transparent dark:from-dt-teal-solid-color-button dark:to-dt-amber-solid-color-button"
+		>{itemNumber}.</span
+	>
+	<a
+		class="transition-color transition-text md:hover: translate-y-1 text-4xl font-normal no-underline transition-transform duration-300 ease-in-out hover:scale-150 hover:italic sm:text-6xl md:text-xl md:hover:scale-105"
+		href={slug}
+	>
+		{itemName}
+	</a>
 </li>
