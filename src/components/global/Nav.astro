@@ -102,6 +102,9 @@ import ThemeSwitcher from "@component/ui/ThemeSwitcher.astro";
 					body.classList.remove("overflow-hidden");
 					menu.classList.add("hidden");
 					menu.classList.remove("flex");
+
+					// Reset the toggle button's state
+					btn.setAttribute("aria-expanded", "false");
 				});
 			});
 		}

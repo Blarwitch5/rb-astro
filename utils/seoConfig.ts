@@ -1,4 +1,3 @@
-
 /**
  * Defines the default SEO configuration for the website.
  */
@@ -11,13 +10,13 @@ export const seoConfig = {
 		url: "https://picsum.photos/1200/630", // Change this to your website's thumbnail.
 		alt: "OpenGraph thumbnail description.", // Change this to your website's thumbnail description.
 		width: 1200,
-		height: 630
+		height: 630,
 	},
 	siteName: "Romain Blary's personal site - Web Developer", // Change this to your website's name,
 	twitter: {
-		card: "summary_large_image"
-	}
-}
+		card: "summary_large_image",
+	},
+};
 
 /**
  * Defines the configuration for PWA webmanifest.
@@ -33,18 +32,18 @@ export const manifest = {
 		{
 			src: "/favicons/favicon-192x192.png",
 			sizes: "192x192",
-			type: "image/png"
-		},
-		{
-			src: "/favicons/favicon-512x512.png",
-			sizes: "512x512",
-			type: "image/png"
+			type: "image/png",
 		},
 		{
 			src: "/favicons/favicon-512x512.png",
 			sizes: "512x512",
 			type: "image/png",
-			purpose: "any maskable"
-		}
-	]
-}
+		},
+		{
+			src: "/favicons/favicon-512x512.png",
+			sizes: "512x512",
+			type: "image/png",
+			purpose: "any maskable",
+		},
+	],
+};
