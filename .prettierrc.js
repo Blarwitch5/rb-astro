@@ -3,11 +3,11 @@ export default {
 	overrides: [
 		{
 			files: "*.astro",
-			options: { parser: "astro" }
-		}
+			options: { parser: "astro" },
+		},
 	],
-	trailingComma: "all",
+	trailingComma: "none",
 	semi: true,
 	singleQuote: false,
-	printWidth: 80
-}
+	printWidth: 80,
+};
